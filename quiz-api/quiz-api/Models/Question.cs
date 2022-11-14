@@ -10,7 +10,7 @@ namespace quiz_api.Models
         public string QuestionInWords { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
-        public string IamgeName { get; set; }
+        public string ImageName { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
         public string Option01 { get; set; }
