@@ -32,7 +32,7 @@ export default function Login() {
                 type="submit"
                 variant="contained"
                 size="large"
-                sx={{ width: "90%" }}
+                sx={{ width: "90%", mt: 2 }}
               >
                 Start
               </Button>
