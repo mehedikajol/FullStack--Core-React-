@@ -1,14 +1,18 @@
 import axios from "axios";
 
-export const BASE_URL = "http://localhost:5041/";
+export const BASE_URL = "http://localhost:21521/";
+
+export const ENDPOINGS = {
+  participant: "participant",
+};
 
 export const createAPIEndpoint = (endpoint) => {
-  let Url = BASE_URL + "api/" + endpoint + "/";
+  let url = BASE_URL + "api/" + endpoint + "/";
   return {
-    fetch: () => axios.get(Url),
-    fetchById: (id) => axios.get(Url + id),
-    post: (newRecord) => axios.post(Url, newRecord),
-    put: (id, updatedRecord) => axios.put(Url + id, updatedRecord),
-    delete: (id) => axios.delete(Url + id),
+    fetch: () => axios.get(url),
+    fetchById: (id) => axios.get(url + id),
+    post: (newRecord) => axios.post(url, newRecord),
+    put: (id, updatedRecord) => axios.put(url + id, updatedRecord),
+    delete: (id) => axios.delete(url + id),
   };
 };

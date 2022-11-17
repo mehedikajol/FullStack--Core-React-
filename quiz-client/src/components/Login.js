@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import Center from "./Center";
 import useForm from "../hooks/useForm";
+import { createAPIEndpoint, ENDPOINGS } from "../api/index";
 
 const getFreshModelObject = () => ({
   name: "",
@@ -21,13 +22,18 @@ export default function Login() {
 
   const login = (e) => {
     e.preventDefault();
-    if (validate()) console.log(values);
+    if (validate()) {
+      createAPIEndpoint(ENDPOINGS.participant)
+        .post(values)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
   };
 
   const validate = () => {
     let temp = {};
     temp.email = /\S+@\S+\.\S+/.test(values.email) ? "" : "Email is not valid";
-    temp.name = values.name != "" ? "" : "This field is required";
+    temp.name = values.name !== "" ? "" : "This field is required";
     setErrors(temp);
     return Object.values(temp).every((x) => x == "");
   };
