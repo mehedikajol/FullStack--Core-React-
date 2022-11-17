@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 export const stateContext = createContext();
 
@@ -9,6 +9,16 @@ const getFreshContext = () => {
     selectedOptions: [],
   };
 };
+
+export default function useStateContext() {
+  const { context, setContext } = useContext(stateContext);
+  return {
+    context,
+    setContext: (obj) => {
+      setContext({ ...context, ...obj });
+    },
+  };
+}
 
 export function ContextProvider({ children }) {
   const [context, setContext] = useState(getFreshContext());
