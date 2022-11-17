@@ -12,11 +12,11 @@ namespace quiz_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ParticipantsController : ControllerBase
+    public class ParticipantController : ControllerBase
     {
         private readonly QuizDbContext _context;
 
-        public ParticipantsController(QuizDbContext context)
+        public ParticipantController(QuizDbContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace quiz_api.Controllers
             return await _context.Participants.ToListAsync();
         }
 
-        // GET: api/Participants/5
+        // GET: api/Participant/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Participant>> GetParticipant(int id)
         {
@@ -42,7 +42,7 @@ namespace quiz_api.Controllers
             return participant;
         }
 
-        // PUT: api/Participants/5
+        // PUT: api/Participant/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutParticipant(int id, Participant participant)
@@ -73,7 +73,7 @@ namespace quiz_api.Controllers
             return NoContent();
         }
 
-        // POST: api/Participants
+        // POST: api/Participant
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Participant>> PostParticipant(Participant participant)
@@ -95,7 +95,7 @@ namespace quiz_api.Controllers
             return Ok(participant);
         }
 
-        // DELETE: api/Participants/5
+        // DELETE: api/Participant/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteParticipant(int id)
         {
